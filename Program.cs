@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace GuessPattern
 {
@@ -8,68 +9,32 @@ namespace GuessPattern
         {
             Console.WriteLine("Enter number: ");
             int n = Convert.ToInt32(Console.ReadLine());
-            //GenerateUpper(n);
-            //GenerateBottom(n);
             GeneratePattern(n);
 
             Console.ReadLine();
         }
 
-        private static void GeneratePattern(int n)
+        private static void GeneratePattern(int num)
         {
-            int x, y, z;
-            for (x = n; x >= 1; x--)
+            int x, y;
+            for (x = 1; x <= num; x++)
             {
-                for (y = 1; y < x; y++)
-                {
-                    Console.Write(" ");
-                }
-                for (z = n; z >= x; z--)
-                {
-                    Console.Write("x");
-                }
-                Console.WriteLine();
+                // Write (5 - i) spaces at once
+                Console.Write(new string(' ', num - x));
 
-                if (z == 0)
-                {
-                    GenerateBottom(n);
-                }
+                // Write 'i' count of "*", joined with a "_"
+                Console.WriteLine(string.Join(" ", Enumerable.Repeat("*", x)));
             }
-        }
-
-        private static void GenerateUpper(int n)
-        {
-            int x , y, z;
-            for (x = n; x >= 1; x--)
+            for (y = num; y >= 1; y--)
             {
-                for (y = 1; y < x; y++)
-                {
-                    Console.Write(" ");
-                }
-                for (z = n; z >= x; z--)
-                {
-                    Console.Write("x");
-                }
-                Console.WriteLine();
-            }
-        }
+                // Write (5 - i) spaces at once
+                Console.Write(new string(' ', num - y));
 
-        private static void GenerateBottom(int n)
-        {
-            int x , y;
-            for (x = n; x >= 0; --x)
-            {
-                if (x != 0)
-                {
-                    string spasi = new String(' ', n);
-                    Console.Write(spasi);
-                }
-                for (y = 1; y <= x; y++)
-                {
-                    Console.Write("x");
-                }
-                Console.WriteLine();
+                // Write 'i' count of "*", joined with a "_"
+                Console.WriteLine(string.Join(" ", Enumerable.Repeat("*", y)));
             }
+
+            Console.ReadLine();
         }
     }
 }
