@@ -57,13 +57,13 @@ namespace GuessPattern
         private static void GenerateBottom(int n)
         {
             int x , y;
-            for (x = n - 1; x >= 0; --x)
+            for (x = n; x >= 0; --x)
             {
-                //if (x != 0)
-                //{
-                //    string spasi = new String(' ', n);
-                //    Console.Write(spasi);
-                //}
+                if (x != 0)
+                {
+                    string spasi = new String(' ', n);
+                    Console.Write(spasi);
+                }
                 for (y = 1; y <= x; y++)
                 {
                     Console.Write("x");
