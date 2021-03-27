@@ -33,8 +33,6 @@ namespace GuessPattern
                 // Write 'y' count of "*", joined with a " "
                 Console.WriteLine(string.Join(" ", Enumerable.Repeat("*", y)));
             }
-
-            Console.ReadLine();
         }
     }
 }
