@@ -19,18 +19,18 @@ namespace GuessPattern
             int x, y;
             for (x = 1; x <= num; x++)
             {
-                // Write (5 - i) spaces at once
+                // Write (num - x) spaces at once
                 Console.Write(new string(' ', num - x));
 
-                // Write 'i' count of "*", joined with a "_"
+                // Write 'x' count of "*", joined with a " "
                 Console.WriteLine(string.Join(" ", Enumerable.Repeat("*", x)));
             }
-            for (y = num; y >= 1; y--)
+            for (y = num - 1; y >= 1; y--)
             {
-                // Write (5 - i) spaces at once
+                // Write (num - y) spaces at once
                 Console.Write(new string(' ', num - y));
 
-                // Write 'i' count of "*", joined with a "_"
+                // Write 'y' count of "*", joined with a " "
                 Console.WriteLine(string.Join(" ", Enumerable.Repeat("*", y)));
             }
 
